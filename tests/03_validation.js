@@ -39,13 +39,13 @@ const { chromium } = require('playwright');
   const dates = top100
   .filter(ts => ts && !isNaN(new Date(ts.split(' ')[0])))
   .map(ts => new Date(ts.split(' ')[0]));
-  console.log(`\n🧪 ${dates.length} valid timestamps used for validation.\n`);
+  console.log(`\n ${dates.length} valid timestamps used for validation.\n`);
 
   // Validation: are dates in descending order (newest first)?
   const isSorted = dates.every((date, i, arr) => i === 0 || arr[i - 1] >= date);
 
-  console.log('\n✅ Validation Result:');
-  console.log(isSorted ? '✅ Articles are sorted newest to oldest' : '❌ Articles are NOT sorted correctly');
+  console.log('\nValidation Result:');
+  console.log(isSorted ? 'Articles are sorted newest to oldest' : ' Articles are NOT sorted correctly');
 
   // Print 5 example timestamps to show what was checked
   console.log('\nSample Timestamps from First 100 Posts:');

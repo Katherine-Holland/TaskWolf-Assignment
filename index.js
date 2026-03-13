@@ -1,5 +1,5 @@
 // Validate first 100 Hacker News posts are sorted newest to oldest
-// Submitted by Kat 🐺
+// Submitted by Kat 
 
 const { chromium } = require("playwright");
 
@@ -8,7 +8,7 @@ async function sortHackerNewsArticles() {
   const context = await browser.newContext();
   const page = await context.newPage();
 
-  console.log("\n🚀 Launching browser and navigating to Hacker News...");
+  console.log("\n Launching browser and navigating to Hacker News...");
   await page.goto("https://news.ycombinator.com/newest");
 
   const timestamps = [];
@@ -34,7 +34,7 @@ async function sortHackerNewsArticles() {
       }
     }
 
-    console.log(`🕵️ Collected ${timestamps.length} timestamps so far...`);
+    console.log(`Collected ${timestamps.length} timestamps so far...`);
 
     if (timestamps.length < 100) {
       await page.click("a.morelink");
@@ -52,26 +52,26 @@ async function sortHackerNewsArticles() {
     .map(ts => new Date(ts.split(" ")[0]));
 
   // Step 4: Validate sort order
-  console.log('\n🧪 Checking timestamp sort order for the first 100 posts...\n');
+  console.log('\n Checking timestamp sort order for the first 100 posts...\n');
 
   const isSorted = dates.every((date, i, arr) => i === 0 || arr[i - 1] >= date);
 
-  console.log(`✅ Collected ${dates.length} valid timestamps from the first 100 posts.`);
+  console.log(`Collected ${dates.length} valid timestamps from the first 100 posts.`);
 
   if (isSorted) {
-    console.log('🎉 Success! Articles are sorted newest to oldest.\n');
+    console.log('Success! Articles are sorted newest to oldest.\n');
   } else {
-    console.log('❌ Sorting failed: Articles are not in the correct order.\n');
+    console.log('Sorting failed: Articles are not in the correct order.\n');
   }
 
   // Step 5: Print sample timestamps
-  console.log("🗓️ Sample timestamps from the first 100:");
+  console.log("Sample timestamps from the first 100:");
   dates.slice(0, 5).forEach((date, i) => {
     console.log(`${i + 1}. ${date.toISOString()}`);
   });
 
   // Step 6: Show time difference between first few posts
-  console.log("\n🔍 Time difference between first few posts:");
+  console.log("\n Time difference between first few posts:");
   for (let i = 1; i < 5; i++) {
     const diff = (dates[i - 1] - dates[i]) / 1000;
     console.log(`Post ${i} to ${i + 1}: ${diff}s difference`);
@@ -79,7 +79,7 @@ async function sortHackerNewsArticles() {
 
   // Step 7: Optional debug output with titles
   if (process.argv.includes('--debug')) {
-    console.log("\n📋 Full list of articles with timestamps:");
+    console.log("\n Full list of articles with timestamps:");
     for (let i = 0; i < dates.length; i++) {
       console.log(`${i + 1}. ${dates[i].toISOString()} — "${top100Titles[i]}"`);
     }
@@ -87,8 +87,8 @@ async function sortHackerNewsArticles() {
 
   await browser.close();
 
-  console.log("\n🧹 Browser closed. All done!");
-  console.log("// Thanks for reviewing my code! – Kat 🐾");
+  console.log("\nBrowser closed. All done!");
+  console.log("// Thanks for reviewing my code! – Kat");
 }
 
 (async () => {

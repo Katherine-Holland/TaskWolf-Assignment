@@ -39,7 +39,7 @@ const { chromium } = require('playwright');
     console.log(`${i + 1}. ${title}`);
   });
 
-  console.log(`✅ Done! Collected ${titles.length} unique titles.`);
+  console.log(`Done! Collected ${titles.length} unique titles.`);
 
   await browser.close();
 })();

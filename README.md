@@ -3,7 +3,7 @@
 
 ---
 
-## 🧪 Testing & What I Learned Along the Way 🪲
+## Testing & What I Learned Along the Way
 
 Taking a methodological approach, I broke the task down into smaller pieces and created three test scripts: one for scraping, one for pagination, and one for validation. Here’s what happened as I worked through each part — including the bugs I hit and how I fixed them.
 
@@ -85,7 +85,7 @@ That worked! I could now convert the timestamps into proper `Date` objects and c
 
 ---
 
-## 💡 Bonus Thought: What About Filtering?
+## Additional Thought: What About Filtering?
 
 After fixing the timestamp issue, I realized I needed to be careful **when** I filtered. I asked myself:
 
@@ -110,13 +110,13 @@ const top100 = timestamps.filter(...).slice(0, 100);
 
 ---
 
-### ✅ Final Thoughts
+### Final Thoughts
 
 Breaking the task into three parts really helped me ensure my results were accurate. I navigated pages, dealt with pagination, cleaned up weird timestamp formats, and wrote solid validation logic. Each script builds on the last, and the final version (`index.js`) brings it all together into one polished solution.
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 To install and run the project:
 
@@ -148,7 +148,7 @@ To install and run the project:
 
 ---
 
-## 📦 Project Dependencies
+## Project Dependencies
 
 This project uses:
 
